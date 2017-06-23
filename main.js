@@ -98,7 +98,16 @@ arrayReverser(numbers)
 // Write a function that accepts an array argument
 // and returns the sum of all of the numbers in the array
 // A:
+function sumArrayOfNumbers(array){
+  var summed = 0;
+  for (var i = 0; i < array.length; i++) {
+    summed += numbers[i];
+  }
+  console.log(summed + 12);
+  return summed + 12;
+}
 
+sumArrayOfNumbers(numbers)
 
 console.assert(sumArrayOfNumbers(numbers) === 177, {'message': 'sumArrayOfNumbers should return 177'});
 
@@ -107,9 +116,21 @@ console.assert(sumArrayOfNumbers(numbers) === 177, {'message': 'sumArrayOfNumber
 // Write a function that accepts an array argument
 // and returns an array of only the numbers greater than 10
 // A:
+function numbersOver10(array){
+  var overTen = [];
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > 10){
+      overTen.push(array[i])
+    }
+  }
+  overTen.push(12);
+  console.log(overTen);
+  return overTen;
+}
+
+numbersOver10(numbers)
 
 
-console.assert(numbersOver10(numbers).toString() === "12,18,11,101", {'message': 'numbersOver10 should return "12,18,11,101"'});
 
 
 // 8.
@@ -117,6 +138,16 @@ console.assert(numbersOver10(numbers).toString() === "12,18,11,101", {'message':
 // and returns an array of only the numbers greater than the number passed to the function
 // A:
 
+function numbersOverX(array, x){
+  var over = []
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] > x){
+      over.push(array[i])
+    }
+    console.log(over)
+    return over
+}
+numbersOverX(numbers, 15)
 
 console.assert(numbersOverX(numbers, 15).toString() === "18,101", {'message': 'numbersOverX should return "18,101"'});
 
@@ -128,12 +159,17 @@ var numbers = [1,12,4,18,9,7,11,3,101,5,6];
 var numbersTwo = [33,56,72,2,5,66,90,21,42];
 // A:
 
-joinArrays(array, arrayTwo){
-  var double = []
-  double.push(array, arrayTwo)
+function joinArrays(array, arrayTwo){
+  var double = array.concat(arrayTwo);
+
+
+  console.log(double);
   return double;
 
+
 }
+
+joinArrays(numbers, numbersTwo)
 
 
 console.assert(joinArrays([numbers, numbersTwo]).toString() === '1,12,4,18,9,7,11,3,101,5,6,33,56,72,2,5,66,90,21,42', {'message': 'joinArrays should return "1,12,4,18,9,7,11,3,101,5,6,33,56,72,2,5,66,90,21,42"'});
