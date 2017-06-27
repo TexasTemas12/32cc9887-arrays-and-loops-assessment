@@ -11,15 +11,15 @@ sports.push('football', 'swimming');
 // 2.
 // Using the `strings` array, wrte a function `longestString()`
 // that accepts an array argument and returns the longest string in the array
-var strings = ['this','is','a','collection','of','words'];
+var strings = ['this', 'is', 'a', 'collection', 'of', 'words'];
 // A:
-function longestString(array){
+function longestString(array) {
   var word = '';
-  for (var i=0; i < array.length; i++){
+  for (var i = 0; i < array.length; i++) {
     console.log(array[i].length)
     //if array[i] length  > word length
     //then replace word with array[i]
-    if (array[i].length > word.length){
+    if (array[i].length > word.length) {
       word = array[i]
     }
   }
@@ -28,11 +28,13 @@ function longestString(array){
 }
 
 
-console.assert(longestString(strings) === 'collection', {"message": "longestString should return 'collection'"});
+console.assert(longestString(strings) === 'collection', {
+  "message": "longestString should return 'collection'"
+});
 
 
 // Use the `numbers` array for questions 3 - 8.
-var numbers = [1,4,18,9,7,11,3,101,5,6];
+var numbers = [1, 4, 18, 9, 7, 11, 3, 101, 5, 6];
 
 
 // 3.
@@ -40,11 +42,11 @@ var numbers = [1,4,18,9,7,11,3,101,5,6];
 // and returns the smallest number in the array.
 // A:
 
-function smallestNumber(array){
+function smallestNumber(array) {
   console.log(array)
   var number = array[0];
   for (var i = 0; i < array.length; i++) {
-    if (array[i] < number){
+    if (array[i] < number) {
       number = array[i];
     }
   }
@@ -52,7 +54,9 @@ function smallestNumber(array){
   return number;
 }
 smallestNumber(numbers)
-console.assert(smallestNumber(numbers) === 1, {"message": "smallestNumber should return 1"});
+console.assert(smallestNumber(numbers) === 1, {
+  "message": "smallestNumber should return 1"
+});
 
 
 // 4.
@@ -64,17 +68,20 @@ function getEvens(array){
   var evens = [];
   console.log(evens);
   for (var i = 0; i < array.length; i++) {
-    if ((array[i] % 2) === 0)
-    evens.push(array[i])
+    if ((array[i] % 2) === 0){
+    evens.push(array[i]);
   }
   console.log(evens);
-  return evens;
-}
 
+}
+return evens;
+}
 getEvens(numbers)
 
 
-console.assert(getEvens(numbers).toString() === '4,18,6', {'message': 'getEvens should return "4,18,6"'});
+console.assert(getEvens(numbers).toString() === '4,18,6', {
+  'message': 'getEvens should return "4,18,6"'
+});
 
 
 // 5.
@@ -84,7 +91,7 @@ console.assert(getEvens(numbers).toString() === '4,18,6', {'message': 'getEvens 
 // and decrement the iterator to zero
 // A:
 
-function arrayReverser(array){
+function arrayReverser(array) {
 
   return array.reverse();
 
@@ -98,7 +105,7 @@ arrayReverser(numbers)
 // Write a function that accepts an array argument
 // and returns the sum of all of the numbers in the array
 // A:
-function sumArrayOfNumbers(array){
+function sumArrayOfNumbers(array) {
   var summed = 0;
   for (var i = 0; i < array.length; i++) {
     summed += numbers[i];
@@ -109,17 +116,19 @@ function sumArrayOfNumbers(array){
 
 sumArrayOfNumbers(numbers)
 
-console.assert(sumArrayOfNumbers(numbers) === 177, {'message': 'sumArrayOfNumbers should return 177'});
+console.assert(sumArrayOfNumbers(numbers) === 177, {
+  'message': 'sumArrayOfNumbers should return 177'
+});
 
 
 // 7.
 // Write a function that accepts an array argument
 // and returns an array of only the numbers greater than 10
 // A:
-function numbersOver10(array){
+function numbersOverTen(array) {
   var overTen = [];
   for (var i = 0; i < array.length; i++) {
-    if (array[i] > 10){
+    if (array[i] > 10) {
       overTen.push(array[i])
     }
   }
@@ -128,7 +137,7 @@ function numbersOver10(array){
   return overTen;
 }
 
-numbersOver10(numbers)
+numbersOverTen(numbers)
 
 
 
@@ -138,64 +147,73 @@ numbersOver10(numbers)
 // and returns an array of only the numbers greater than the number passed to the function
 // A:
 
-function numbersOverX(array, x){
+function numbersOverX(array, x) {
   var over = []
   for (var i = 0; i < array.length; i++) {
-    if (array[i] > x){
+    if (array[i] > x) {
       over.push(array[i])
     }
-    console.log(over)
-    return over
+
+
+  }
+
+  array.reverse(over);
+
+  return over;
 }
-numbersOverX(numbers, 15)
+  numbersOverX(numbers, 15)
 
-console.assert(numbersOverX(numbers, 15).toString() === "18,101", {'message': 'numbersOverX should return "18,101"'});
+  console.assert(numbersOverX(numbers, 15).toString() === "18,101", {
+    'message': 'numbersOverX should return "18,101"'
+  });
 
-// 9.
-// Write a function `joinArrays()` that takes an array of arrays,
-// and returns a single array with the contents of the second array
-// listed after the contents of the first array
-var numbers = [1,12,4,18,9,7,11,3,101,5,6];
-var numbersTwo = [33,56,72,2,5,66,90,21,42];
-// A:
+  // 9.
+  // Write a function `joinArrays()` that takes an array of arrays,
+  // and returns a single array with the contents of the second array
+  // listed after the contents of the first array
+  var numbers = [1, 12, 4, 18, 9, 7, 11, 3, 101, 5, 6];
+  var numbersTwo = [33, 56, 72, 2, 5, 66, 90, 21, 42];
+  // A:
 
-function joinArrays(array, arrayTwo){
-  var double = array.concat(arrayTwo);
-
-
-  console.log(double);
-  return double;
+  function joinArrays(array, arrayTwo) {
+    var double = array.join(arrayTwo);
 
 
-}
-
-joinArrays(numbers, numbersTwo)
-
-
-console.assert(joinArrays([numbers, numbersTwo]).toString() === '1,12,4,18,9,7,11,3,101,5,6,33,56,72,2,5,66,90,21,42', {'message': 'joinArrays should return "1,12,4,18,9,7,11,3,101,5,6,33,56,72,2,5,66,90,21,42"'});
+    
+    return double;
 
 
-// 10.
-// Using the `instructors` array, comment the value of each variable below
-var instructors = [
-    ['JD','JavaScript'],
-    ['Tim','JavaScript'],
-    ['Brit','Ruby'],
-    ['Joe','iOS'],
-    ['Dan','JavaScript'],
-    ['Will','JavaScript'],
-    ['Calvin','JavaScript'],
-    ['James','Ruby']
-];
+  }
 
-var instructorNameDiscipline = instructors[5];
-// greenvIlleInstructor = Will, JavaScript
+  joinArrays(numbers, numbersTwo)
 
-var instructorOne = instructors[4][0];
-// instructorOne = Dan
 
-var instructorTwo = instructors[0][1];
-// instructorTwo = JavaScript
+  console.assert(joinArrays([numbers, numbersTwo]).toString() === '1,12,4,18,9,7,11,3,101,5,6,33,56,72,2,5,66,90,21,42', {
+    'message': 'joinArrays should return "1,12,4,18,9,7,11,3,101,5,6,33,56,72,2,5,66,90,21,42"'
+  });
 
-var instructorThree = instructors[2][0];
-// instructorThree = Brit
+
+  // 10.
+  // Using the `instructors` array, comment the value of each variable below
+  var instructors = [
+    ['JD', 'JavaScript'],
+    ['Tim', 'JavaScript'],
+    ['Brit', 'Ruby'],
+    ['Joe', 'iOS'],
+    ['Dan', 'JavaScript'],
+    ['Will', 'JavaScript'],
+    ['Calvin', 'JavaScript'],
+    ['James', 'Ruby']
+  ];
+
+  var instructorNameDiscipline = instructors[5];
+  // greenvIlleInstructor = Will, JavaScript
+
+  var instructorOne = instructors[4][0];
+  // instructorOne = Dan
+
+  var instructorTwo = instructors[0][1];
+  // instructorTwo = JavaScript
+
+  var instructorThree = instructors[2][0];
+  // instructorThree = Brit
